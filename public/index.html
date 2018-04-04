@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Использование инструментов автоматизации тестирования для проведения аудита информационной безопасности современных web-приложений</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<script>
+		'use strict';
+
+		const gcd = (a, b) => (b === 0) ? a : gcd(b, a % b);
+		const w = screen.width;
+		const h = screen.height;
+		const r = gcd(w, h);
+
+		console.log(`${w}x${h}`);
+		let aspect = `${w / r}x${h / r}`;
+		console.log(aspect);
+
+		const ratios = ['8x5', '4x3', '6x5', '5x3', '5x4', '16x9'];
+		if (!ratios.includes(aspect)) {
+			aspect = ratios[0];
+		}
+
+		document.write(`<link rel="stylesheet" href="lib/shower/themes/technopark/styles/screen-${'16x9'}.css">`);
+
+	</script>
+
+	<link rel="stylesheet" href="lib/hljs/styles/github.css">
+
+
+</head>
+<body class="shower list">
+
+	<header class="caption">
+		<h1>Использование инструментов автоматизации тестирования для проведения аудита информационной безопасности современных web-приложений</h1>
+		<p>Студенческая научная весна 2018 &mdash; МГТУ, кафедра ИУ8, 2018 г.</p>
+	</header>
+
+	<section class="slide">
+		<h2 class="shout">
+			<div style="font-size: 42px; display: inline-block;">Использование инструментов автоматизации тестирования для проведения аудита информационной безопасности современных web-приложений</div>
+			<strong style="font-size: 26px; display: inline-block;">Исполнители:</strong>
+			<ul style="font-size: 26px; display: inline-block; float: right; margin-top: 76px; margin-right: 40px;">
+				<li>Каллистова Наталья &mdash; ИУ8-102</li>
+				<li>Остапенко Анатолий &mdash; ИУ8-102</li>
+			</ul>
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Аудит безопасности</h2>
+		<blockquote>
+			<p><strong>Аудит информационной безопасности</strong> &mdash; системный процесс получения объективных качественных и количественных оценок о текущем состоянии информационной безопасности компании в соответствии с определёнными критериями и показателями безопасности</p>
+		</blockquote>
+		<p class="note" style="font-size: 20px;">Аудит позволяет оценить текущую безопасность функционирования информационной системы, оценить и прогнозировать риски, управлять их влиянием на бизнес-процессы фирмы, корректно и обоснованно подойти к вопросу обеспечения безопасности её информационных активов</p>
+	</section>
+
+	<section class="slide">
+		<h2>Актуальность</h2>
+		<ul>
+			<li>Популяризация Интернета</li>
+			<li>Развитие возможностей web-приложений, которые теперь позволяют делать всё более сложные web-приложения</li>
+			<li>Появление интернет-банкинга, интернет-магазинов, большое количество операций с деньгами, проводящихся через web-приложения</li>
+			<li>Увеличение количества персональных данных, хранящихся и обрабатываемых в web-приложениях</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Уязвимости и атаки на web-приложения</h2>
+		<ul style="font-size: 20px;">
+			<li><strong>Cross-Site Scripting (XSS)</strong> &mdash; тип атаки на web-приложения, заключающийся во внедрении в выдаваемую сервером страницу вредоносного кода (который будет выполнен на компьютере пользователя при открытии им этой страницы) и взаимодействии этого кода с web-сервером злоумышленника</li>
+			<li><strong>SQL-injection</strong> &mdash; тип атаки на web-приложения, работающие с SQL-базами данных, основанный на внедрении в запрос произвольного SQL-кода, который затем будет выполнен на web-сервере</li>
+			<li><strong>Access Control List (ACL) vulnerabilities</strong> &mdash; уязвимости, связанные с неправильной проверкой прав доступа пользователей, когда одни пользователи системы имеют возможность взаимодействовать с объектами, созданными другими пользователями системы</li>
+			<li>Множество других типов атак и уязвимостей</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Цифры ДО</h2>
+		<ul>
+			<li>Команда информационной безопасности Почты &mdash; 5 человек</li>
+			<li>Каждый релиз &mdash; около 400 проверок, выполняющихся руками (это только тестирование web-интерфейса)</li>
+			<li>Тестирование безопасности итерации занимало два дня</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Что мы сделали</h2>
+		<p class="medium-content"></p>
+		<ol>
+			<li>Оформили часть проверок безопасности в виде тест-кейсов, пригодных к автоматизации</li>
+			<li>С помощью имеющейся инфраструктуры, написали по этим кейсам автоматизированные тесты</li>
+			<li>Стали запускать эти тесты совместно с интеграционными тестами на всё web-приложение</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Цифры после</h2>
+		<p class="medium-content"></p>
+		<ul>
+			<li>Автоматизировали проверку XSS, ACL и Template Injection уязвимостей</li>
+			<li>240 автоматизированных тестов безопасности</li>
+			<li>Сокращение времени тестирования итерации с двух дней до 4&ndash;5 часов</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Программные средства автоматизации тестирования</h2>
+		<p class="medium-content"></p>
+		<ul>
+			<li><strong>Протокол W3C WebDriver</strong> &mdash; программный интерфейс для управления браузером</li>
+			<li><strong>Selenium</strong> &mdash; это инструмент для автоматизации действий веб-браузера</li>
+			<li><strong>WebDriverIO</strong> &mdash; реализация протокола WebDriver для управления браузером из Node.js</li>
+			<li><strong>Jenkins CI</strong> &mdash; проект для обеспечения непрерывной интеграции</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Методика проверки защищённости от XSS</h2>
+		<p></p>
+	</section>
+
+	<section class="slide">
+		<h2>Методика проверки защищённости от ACL Vulnerabilities</h2>
+		<p></p>
+	</section>
+
+	<section class="slide">
+		<h2>Методика проверки защищённости от Template Injection</h2>
+		<p></p>
+	</section>
+
+	<section class="slide question">
+		<h2 style="font-size: 60px;">Мы готовы ответить на <br> ваши вопросы</h2>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Всем спасибо!</h2>
+	</section>
+
+	<div class="progress"></div>
+	<script src="lib/shower/shower.min.js"></script>
+	<script src="lib/hljs/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

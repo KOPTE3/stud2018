@@ -1,0 +1,23 @@
+{
+  "name": "stud2018",
+  "version": "1.0.0",
+  "description": "Студ-весна 2018",
+  "main": "index.html",
+  "scripts": {
+    "start": "reload -d ./public -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KOPTE3/stud2018.git"
+  },
+  "keywords": [],
+  "author": "Anatoliy Ostapenko <ostapencko.anatoliy@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KOPTE3/stud2018/issues"
+  },
+  "homepage": "https://github.com/KOPTE3/stud2018#readme",
+  "dependencies": {
+    "reload": "^1.1.1"
+  }
+}
